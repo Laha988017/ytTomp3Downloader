@@ -9,6 +9,7 @@ links = list()
 for line in Lines:
     links.append(line.strip())
 print("============Recieved from txt file================")
+title = ""
 for link in links:
     try:
         print("Getting the URL "+link)
@@ -24,4 +25,8 @@ for link in links:
         print("Download Successful")
         convertmp4tomp3(title, os.getcwd()+"\\video\\"+title+".mp4")
     except Exception:
+        print("===========Unsuccessfull================")
+        file1 = open("notDownloaded.txt", "a")  # append mode
+        file1.write(link+" "+title+" \n")
+        file1.close()
         continue
