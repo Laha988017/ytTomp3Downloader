@@ -15,7 +15,7 @@ for link in links:
         print("Getting the URL "+link)
         youtube_1 = YouTube(link)
         title1 = youtube_1.title
-        title = re.sub('[^a-zA-Z0-9 \n\.]', '', title1)
+        title = re.sub('[^a-zA-Z0-9 \n]', '', title1)
         youtube_1.title = title
         print(title)
         videos = youtube_1.streams.filter(
